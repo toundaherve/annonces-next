@@ -1,0 +1,14 @@
+th,
+td {
+  padding: 12px !important;
+}
+
+.item th,
+.item td {
+  padding: 4px 16px 4px 0px !important;
+}
+
+.item tr,
+.item td {
+  border: none !important;
+}
