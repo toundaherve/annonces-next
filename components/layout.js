@@ -13,7 +13,7 @@ const Layout = ({
         <div className="mb-3">
           <ul className="nav justify-content-end">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#1">
+              <a className="nav-link active" aria-current="page" href="/postad">
                 Post an offer
               </a>
             </li>
@@ -44,7 +44,7 @@ const Layout = ({
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
-                <a href="#1">Home</a>
+                <a href="/">Home</a>
               </li>
               <li className="breadcrumb-item">
                 <a href="#1">Library</a>
