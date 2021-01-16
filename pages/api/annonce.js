@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import Annonce from "../../db/models/Annonce";
 
 function handlePOST(req, res) {
@@ -42,12 +43,51 @@ function handlePOST(req, res) {
     });
 }
 
+async function handleQuery(req, res) {
+  const query = req.query.search;
+  const words = query.split(" ");
+  const clauses = {};
+  const LIMIT = req.query.limit;
+  const OFFSET = req.query.offset;
+
+  words.forEach((word) => {
+    clauses[Op.iLike] = `%${word}%`;
+  });
+
+  const ads = await Annonce.findAll({
+    where: {
+      title: {
+        [Op.and]: clauses,
+      },
+    },
+    offset: OFFSET,
+    limit: LIMIT,
+  });
+
+  const data = ads.map(({ category, title, description, price, contact }) => {
+    return { category, title, description, price, contact };
+  });
+
+  res.statusCode = 200;
+  res.end(JSON.stringify(data));
+}
+
 export default (req, res) => {
   Annonce.sync();
 
   switch (req.method) {
     case "POST":
       handlePOST(req, res);
+      break;
+
+    case "GET":
+      if (req.query) {
+        handleQuery(req, res);
+      } else {
+        res.statusCode = 400;
+        res.end();
+      }
+
       break;
 
     default:

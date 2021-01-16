@@ -12,6 +12,7 @@ export async function getServerSideProps(context) {
   const query = context.query.search;
   const words = query.split(" ");
   const clauses = {};
+  const LIMIT = 3;
 
   words.forEach((word) => {
     clauses[Op.iLike] = `%${word}%`;
@@ -24,7 +25,7 @@ export async function getServerSideProps(context) {
       },
     },
     offset: 0,
-    limit: 5,
+    limit: LIMIT,
   });
 
   const totalCount = await Annonce.count({
@@ -44,6 +45,7 @@ export async function getServerSideProps(context) {
       data,
       totalCount,
       query,
+      limit: LIMIT,
     },
   };
 }
