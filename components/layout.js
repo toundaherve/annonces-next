@@ -26,12 +26,14 @@ const Layout = ({
       </div>
 
       <div className="row justify-content-center p-3 mb-4 bg-info">
-        <form className=" col-12 col-lg-6 d-flex">
+        <form className=" col-12 col-lg-6 d-flex" action="/result" method="get">
           <input
             className="form-control me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
+            name="search"
+            required
           />
           <button className="btn btn-outline-success" type="submit">
             Search
