@@ -15,33 +15,35 @@ const ItemPage = ({
       <div className="item row">
         <div className="col-12 col-md-12">
           <div className="p-3 mb-4 border">
-            <h4 className="py-2 mb-4">{title}</h4>
+            <h4 className="mb-3">{title}</h4>
 
             <div className="mb-4">
               <p className="mb-3">{description}</p>
-
-              <p className="m-0">
-                Offer: <span className="fw-bold">{price}</span>
-              </p>
             </div>
 
-            <div className="mb-4">
+            <div className="">
               <table className="table">
                 <tbody>
+                  <tr>
+                    <td>Offer:</td>
+                    <td>
+                      <span className="fw-bold">{price}</span>
+                    </td>
+                  </tr>
                   <tr>
                     <td>Category:</td>
                     <td>{category}</td>
                   </tr>
                   <tr>
-                    <td>Time remaning:</td>
+                    <td>ETA:</td>
                     <td>45min</td>
                   </tr>
                   <tr>
-                    <td>Reference number:</td>
+                    <td>Reference:</td>
                     <td>{id}</td>
                   </tr>
                   <tr>
-                    <td>Published date:</td>
+                    <td>Published:</td>
                     <td>{createdAt}</td>
                   </tr>
                 </tbody>

@@ -2,7 +2,7 @@ import React from "react";
 
 const ResultsTable = ({ data }) => {
   return (
-    <table className="table">
+    <table className="table align-middle">
       <thead>
         <tr>
           <th scope="col">Title</th>
@@ -16,14 +16,17 @@ const ResultsTable = ({ data }) => {
         {data.map((ad, idx) => {
           return (
             <tr key={idx}>
-              <th className="fw-normal" scope="row">
+              <td className="fw-normal" scope="row">
                 {ad.title}
-              </th>
+              </td>
               <td>{ad.price}</td>
               <td>Location</td>
               <td>Time</td>
               <td>
-                <a href={`/item?id=${ad.id}`} className="btn btn-primary">
+                <a
+                  href={`/item?id=${ad.id}`}
+                  className="btn btn-outline-primary"
+                >
                   View
                 </a>
               </td>

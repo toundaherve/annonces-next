@@ -6,7 +6,7 @@ import Section from "./section";
 const HomePage = ({ latestAds }) => {
   return (
     <Layout>
-      <Section title="Dernieres Annonces" next={false}>
+      <Section title="Latest offers" next={false}>
         <ResultsTable data={latestAds} />
       </Section>
     </Layout>
