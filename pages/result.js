@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
   const query = context.query.search;
   const words = query.split(" ");
   const clauses = {};
-  const LIMIT = 3;
+  const LIMIT = 15;
 
   words.forEach((word) => {
     clauses[Op.iLike] = `%${word}%`;

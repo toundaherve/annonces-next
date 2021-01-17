@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import ResultPage from "./ResultPage";
 
 const mockData = [
@@ -27,46 +27,66 @@ const ResultPageContainer = ({
   limit,
 }) => {
   const [data, setData] = useState(dataInitial);
-  const page = 1;
+  const [requestError, setRequestError] = useState({
+    error: false,
+    errorMsg: "",
+  });
+  const page = useRef(0);
+
+  function handleResponse(ok, data) {
+    if (ok) {
+      setData(data);
+    } else {
+      setRequestError({
+        error: true,
+        errorMsg: data,
+      });
+    }
+  }
+
+  function handleRequestFailure(error) {
+    setRequestError({
+      error: true,
+      errorMsg: error.message,
+    });
+  }
 
   function handlePageClick(paginationData) {
     const selected = paginationData.selected;
     const offset = Math.ceil(selected * limit);
 
-    getData(
-      offset,
-      limit,
-      query,
-      (data) => {
-        setData(data);
-      },
-      () => {
-        alert(error);
-      }
-    );
+    page.current = selected;
+
+    getData(offset, limit, query, handleResponse, handleRequestFailure);
   }
 
   return (
     <ResultPage
-      page={page}
+      page={page.current}
       details={null}
       data={data}
       totalCount={totalCount}
       query={query}
       limit={limit}
       onPageClick={handlePageClick}
+      requestError={requestError}
     />
   );
 };
 
-function getData(offset, limit, query, onSuccess, onFail) {
+function getData(offset, limit, query, onResponse, onFailure) {
+  let ok;
+
   fetch(
     `http://192.168.1.68:3000/api/annonce?search=${query}&offset=${offset}&limit=${limit}`
   )
-    .then((response) => response.json())
-    .then((data) => onSuccess(data))
+    .then((response) => {
+      ok = response.ok;
+      return response.json();
+    })
+    .then((data) => onResponse(ok, data))
     .catch((err) => {
-      onFail(err);
+      onFailure(err);
     });
 }
 

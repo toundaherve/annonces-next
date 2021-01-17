@@ -54,22 +54,28 @@ async function handleQuery(req, res) {
     clauses[Op.iLike] = `%${word}%`;
   });
 
-  const ads = await Annonce.findAll({
-    where: {
-      title: {
-        [Op.and]: clauses,
+  try {
+    const ads = await Annonce.findAll({
+      where: {
+        title: {
+          [Op.and]: clauses,
+        },
       },
-    },
-    offset: OFFSET,
-    limit: LIMIT,
-  });
+      offset: OFFSET,
+      limit: LIMIT,
+    });
 
-  const data = ads.map(({ category, title, description, price, contact }) => {
-    return { category, title, description, price, contact };
-  });
+    const data = ads.map(({ category, title, description, price, contact }) => {
+      return { category, title, description, price, contact };
+    });
 
-  res.statusCode = 200;
-  res.end(JSON.stringify(data));
+    res.statusCode = 200;
+    res.end(JSON.stringify(data));
+  } catch (error) {
+    console.log(error);
+    res.statusCode = 500;
+    res.end(JSON.stringify("Internal server error"));
+  }
 }
 
 export default (req, res) => {
