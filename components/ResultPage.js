@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import ReactPaginate from "react-paginate";
 import Layout from "./layout";
+import ResultsTable from "./ResultsTable";
 
 const ResultPage = ({
   page,
@@ -29,36 +30,7 @@ const ResultPage = ({
       </div>
 
       <div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Titre</th>
-              <th scope="col">Prix</th>
-              <th scope="col">Ville</th>
-              <th scope="col">Time</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((ad, idx) => {
-              return (
-                <tr key={idx}>
-                  <th className="fw-normal" scope="row">
-                    {ad.title}
-                  </th>
-                  <td>{ad.price}</td>
-                  <td>Location</td>
-                  <td>Time</td>
-                  <td>
-                    <a href={`/item?id=${ad.id}`} className="btn btn-primary">
-                      View
-                    </a>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <ResultsTable data={data} />
       </div>
 
       {pagesCount > 1 && (

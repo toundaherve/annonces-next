@@ -120,37 +120,8 @@ const Layout = ({
           </div>
         </div>
       </div>
-
-      <ModalLoading />
     </div>
   );
 };
 
-function ModalLoading() {
-  return (
-    <div
-      className="modal fade"
-      id="modalLoading"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabIndex={-1}
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content border-0 bg-transparent">
-          <div className="d-flex justify-content-center">
-            <div
-              className="spinner-border text-light"
-              style={{ width: "3rem", height: "3rem" }}
-              role="status"
-            >
-              <span className="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 export default Layout;
