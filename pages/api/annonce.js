@@ -7,13 +7,7 @@ function handlePOST(req, res) {
   if (!data) {
     res.setHeader("Content-Type", "application/json");
     res.statusCode = 400;
-    return res.end(
-      JSON.stringify({
-        code: 400,
-        type: "string",
-        message: "Bad request",
-      })
-    );
+    return res.end(JSON.stringify("Empty body"));
   }
 
   return Annonce.build(data)
@@ -21,25 +15,13 @@ function handlePOST(req, res) {
     .then(() => {
       res.setHeader("Content-Type", "application/json");
       res.statusCode = 200;
-      res.end(
-        JSON.stringify({
-          code: 200,
-          type: "string",
-          message: "Success annonce creation",
-        })
-      );
+      res.end(JSON.stringify("Success creating ad"));
     })
     .catch((err) => {
       console.log(err);
       res.setHeader("Content-Type", "application/json");
       res.statusCode = 500;
-      res.end(
-        JSON.stringify({
-          code: 500,
-          type: "string",
-          message: "Internal server error",
-        })
-      );
+      res.end(JSON.stringify("Internal server error"));
     });
 }
 

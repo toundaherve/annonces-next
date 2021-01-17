@@ -42,6 +42,7 @@ const ResultPageContainer = ({
         errorMsg: data,
       });
     }
+    window.scrollTo(0, 0);
   }
 
   function handleRequestFailure(error) {
@@ -49,6 +50,7 @@ const ResultPageContainer = ({
       error: true,
       errorMsg: error.message,
     });
+    window.scrollTo(0, 0);
   }
 
   function handlePageClick(paginationData) {

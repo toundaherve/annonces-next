@@ -9,6 +9,8 @@ const PostAdPage = ({
   values,
   wasValidated,
   status,
+  error,
+  loading,
 }) => {
   return (
     <Layout>
@@ -120,8 +122,18 @@ const PostAdPage = ({
               </div>
 
               <div className="d-grid gap-2 mb-3">
-                <button className="btn btn-primary" type="submit">
-                  Send
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <span className="spinner-border">
+                      <span className="visually-hidden">Loading...</span>
+                    </span>
+                  ) : (
+                    "Send"
+                  )}
                 </button>
               </div>
             </div>
@@ -132,32 +144,18 @@ const PostAdPage = ({
       {status === "success" && (
         <div className="alert alert-success" role="alert">
           <h4 className="alert-heading">Well done!</h4>
-          <p>
-            Aww yeah, you successfully read this important alert message. This
-            example text is going to run a bit longer so that you can see how
-            spacing within an alert works with this kind of content.
-          </p>
+          <p>Your offer have been created successfully !!!</p>
           <hr />
-          <p className="mb-0">
-            Whenever you need to, be sure to use margin utilities to keep things
-            nice and tidy.
-          </p>
+          <p className="mb-0"></p>
         </div>
       )}
 
       {status === "error" && (
         <div className="alert alert-danger" role="alert">
-          <h4 className="alert-heading">Well done!</h4>
-          <p>
-            Aww yeah, you successfully read this important alert message. This
-            example text is going to run a bit longer so that you can see how
-            spacing within an alert works with this kind of content.
-          </p>
+          <h4 className="alert-heading">Sorry !</h4>
+          <p>The operation could not be performed: {error}</p>
           <hr />
-          <p className="mb-0">
-            Whenever you need to, be sure to use margin utilities to keep things
-            nice and tidy.
-          </p>
+          <p className="mb-0">Retry later !</p>
         </div>
       )}
     </Layout>
