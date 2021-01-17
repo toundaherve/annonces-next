@@ -42,7 +42,6 @@ const ResultPageContainer = ({
         errorMsg: data,
       });
     }
-    window.scrollTo(0, 0);
   }
 
   function handleRequestFailure(error) {

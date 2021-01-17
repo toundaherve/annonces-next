@@ -47,9 +47,29 @@ async function handleQuery(req, res) {
       limit: LIMIT,
     });
 
-    const data = ads.map(({ category, title, description, price, contact }) => {
-      return { category, title, description, price, contact };
-    });
+    const data = ads.map(
+      ({
+        id,
+        category,
+        title,
+        description,
+        price,
+        contact,
+        createdAt,
+        updatedAt,
+      }) => {
+        return {
+          id,
+          category,
+          title,
+          description,
+          price,
+          contact,
+          createdAt,
+          updatedAt,
+        };
+      }
+    );
 
     res.statusCode = 200;
     res.end(JSON.stringify(data));

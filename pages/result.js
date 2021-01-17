@@ -36,9 +36,29 @@ export async function getServerSideProps(context) {
     },
   });
 
-  const data = ads.map(({ category, title, description, price, contact }) => {
-    return { category, title, description, price, contact };
-  });
+  const data = ads.map(
+    ({
+      id,
+      category,
+      title,
+      description,
+      price,
+      contact,
+      createdAt,
+      updatedAt,
+    }) => {
+      return {
+        id,
+        category,
+        title,
+        description,
+        price,
+        contact,
+        createdAt: createdAt.toString(),
+        updatedAt: updatedAt.toString(),
+      };
+    }
+  );
 
   return {
     props: {

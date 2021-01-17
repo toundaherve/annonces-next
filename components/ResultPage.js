@@ -36,6 +36,7 @@ const ResultPage = ({
               <th scope="col">Prix</th>
               <th scope="col">Ville</th>
               <th scope="col">Time</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -48,6 +49,11 @@ const ResultPage = ({
                   <td>{ad.price}</td>
                   <td>Location</td>
                   <td>Time</td>
+                  <td>
+                    <a href={`/item?id=${ad.id}`} className="btn btn-primary">
+                      View
+                    </a>
+                  </td>
                 </tr>
               );
             })}
