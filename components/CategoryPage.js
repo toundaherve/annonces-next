@@ -1,20 +1,21 @@
 import React from "react";
-import FailureAlert from "./FailureAlert";
 import Layout from "./layout";
 import NoResultsAlert from "./NoResultsAlert";
 import ResultsSummary from "./ResultsSummary";
 import ResultsTable from "./ResultsTable";
 import Section from "./section";
 
-const ResultPage = ({
+const CategoryPage = ({
   page,
-  totalCount,
+  details,
   data,
+  totalCount,
   query,
   limit,
   onPageClick,
   requestError,
 }) => {
+  const capitalized = query.charAt(0).toUpperCase() + query.substr(1);
   const hasResults = data.length > 0 ? true : false;
 
   const Results = () => (
@@ -24,7 +25,7 @@ const ResultPage = ({
         limit={limit}
         data={data}
         page={page}
-        query={query}
+        query={capitalized}
       />
 
       <ResultsTable
@@ -36,7 +37,6 @@ const ResultPage = ({
       />
     </div>
   );
-
   return (
     <Layout>
       <Section noHeading>
@@ -45,11 +45,14 @@ const ResultPage = ({
         ) : hasResults ? (
           <Results />
         ) : (
-          <NoResultsAlert query={query} />
+          <NoResultsAlert
+            query={query}
+            templateMsg={`There are no offers yet in category ${query}.`}
+          />
         )}
       </Section>
     </Layout>
   );
 };
 
-export default ResultPage;
+export default CategoryPage;

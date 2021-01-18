@@ -3,6 +3,16 @@ import React, { useState } from "react";
 import Layout from "./layout";
 import Section from "./section";
 
+export const categories = [
+  "Clothes",
+  "Shoes",
+  "Electronics",
+  "Sports Gear",
+  "Automobiles",
+  "Video games",
+  "Other",
+];
+
 const PostAdPage = ({
   handleSubmit,
   handleChange,
@@ -39,9 +49,9 @@ const PostAdPage = ({
                     required
                   >
                     <option value="">Open this select menu</option>
-                    <option value="phones">Phones</option>
-                    <option value="clothing">Clothing</option>
-                    <option value="cars">Cars</option>
+                    {categories.map((category, idx) => (
+                      <option value={category.toLowerCase()}>{category}</option>
+                    ))}
                   </select>
                   <div className="invalid-feedback">
                     Please choose a category.

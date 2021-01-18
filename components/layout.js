@@ -1,4 +1,5 @@
 import React from "react";
+import { categories } from "./PostAdPage";
 import Section from "./section";
 
 const Layout = ({
@@ -62,11 +63,13 @@ const Layout = ({
       <div className="row">
         {leftAside && (
           <div className="d-none d-sm-block col-12 col-sm-3 col-lg-3">
-            <Section title="Rubrique">
+            <Section title="Categories" headingSize="h5" next={false}>
               <ul className="list-unstyled">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
-                  <li key={n} className="pb-1">
-                    Animaux (657)
+                {categories.map((category, idx) => (
+                  <li key={idx} className="pb-1">
+                    <a
+                      href={`/category?category=${category.toLocaleLowerCase()}`}
+                    >{`${category} >`}</a>
                   </li>
                 ))}
               </ul>

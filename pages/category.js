@@ -1,39 +1,29 @@
 import React from "react";
-import { Op } from "sequelize";
-
-import ResultPageContainer from "../components/ResultPageContainer";
 import Annonce from "../db/models/Annonce";
 import extractAdsFromDbResults from "../utils/extractAdsFromDbResults";
 
-const Result = (props) => {
-  return <ResultPageContainer {...props} />;
+import CategoryPageContainer from "../components/CategoryPageContainer";
+
+const Category = (props) => {
+  return <CategoryPageContainer {...props} />;
 };
 
-export async function getServerSideProps(context) {
-  const query = context.query.search;
-  const words = query.split(" ");
-  const clauses = {};
-  const limit = 15;
+export default Category;
 
-  words.forEach((word) => {
-    clauses[Op.iLike] = `%${word}%`;
-  });
+export async function getServerSideProps(context) {
+  const category = context.query.category;
+  const limit = 15;
 
   const results = await Annonce.findAll({
     where: {
-      title: {
-        [Op.and]: clauses,
-      },
+      category,
     },
-    offset: 0,
     limit,
   });
 
   const totalCount = await Annonce.count({
     where: {
-      title: {
-        [Op.and]: clauses,
-      },
+      category,
     },
   });
 
@@ -42,11 +32,10 @@ export async function getServerSideProps(context) {
   return {
     props: {
       data,
+      category,
+      query: category,
       totalCount,
-      query,
       limit,
     },
   };
 }
-
-export default Result;
