@@ -118,7 +118,7 @@ const ItemPage = ({
                 </div>
 
                 <div className="d-grid gap-2">
-                  <button className="btn btn-primary" type="button">
+                  <button className="btn btn-dark" type="button">
                     Send
                   </button>
                 </div>

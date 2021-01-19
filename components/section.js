@@ -8,7 +8,7 @@ export default function Section({
   noHeading = false,
 }) {
   return (
-    <div className="p-3 mb-4 border">
+    <div className="p-3 mb-4 border bg-white">
       {!noHeading && <h4 className={`${headingSize} mb-3`}>{title}</h4>}
       {children}
       {next && (
