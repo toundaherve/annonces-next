@@ -27,7 +27,9 @@ const Layout = ({
         </div>
 
         <div className="mb-4">
-          <h2 className="fw-bolder">WANT3D</h2>
+          <a href="/" className="link-dark">
+            <h2 className="fw-bolder display-3">WANT3D</h2>
+          </a>
         </div>
       </div>
 
