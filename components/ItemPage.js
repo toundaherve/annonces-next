@@ -25,7 +25,7 @@ const ItemPage = ({
               <table className="table">
                 <tbody>
                   <tr>
-                    <td>Offer:</td>
+                    <td>Will pay:</td>
                     <td>
                       <span className="fw-bold">{price}</span>
                     </td>

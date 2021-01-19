@@ -158,9 +158,12 @@ const PostAdPage = ({
       {status === "success" && (
         <div className="alert alert-success" role="alert">
           <h4 className="alert-heading">Well done!</h4>
-          <p>Your offer have been created successfully !!!</p>
+          <p>Your want has been successfully published!!!</p>
           <hr />
-          <p className="mb-0"></p>
+          <p className="mb-0">
+            Now you can relax... We will email you at as soon as somebody has
+            what you want.
+          </p>
         </div>
       )}
 
