@@ -25,10 +25,8 @@ const PostAdPage = ({
   return (
     <Layout>
       {status === "form" && (
-        <Section title="Passer une annonce" next={false}>
-          <p className="mb-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+        <Section title="Post a want" next={false}>
+          <p className="mb-4">Describ the item you want to buy.</p>
 
           <form
             onSubmit={handleSubmit}
@@ -38,7 +36,7 @@ const PostAdPage = ({
             <div className="">
               <div className="mb-3">
                 <div className="">
-                  <div className="mb-2">Categorie: </div>
+                  <div className="mb-2">Category: </div>
 
                   <select
                     className="form-select"
@@ -54,14 +52,14 @@ const PostAdPage = ({
                     ))}
                   </select>
                   <div className="invalid-feedback">
-                    Please choose a category.
+                    Please choose a category for the item.
                   </div>
                 </div>
               </div>
 
               <div className="mb-3">
                 <div className="">
-                  <div className="mb-2">Titre: </div>
+                  <div className="mb-2">What item do you need? </div>
 
                   <input
                     type="text"
@@ -70,15 +68,18 @@ const PostAdPage = ({
                     value={values.title}
                     onChange={handleChange}
                     name="title"
+                    placeholder="Example: Iphone 8 plus"
                     required
                   />
-                  <div className="invalid-feedback">Please choose a title.</div>
+                  <div className="invalid-feedback">
+                    Please provide the name of the item.
+                  </div>
                 </div>
               </div>
 
               <div className="mb-3">
                 <div className="">
-                  <div className="mb-2">Descriptif: </div>
+                  <div className="mb-2">Can you be more specific? </div>
 
                   <textarea
                     className="form-control"
@@ -88,6 +89,7 @@ const PostAdPage = ({
                     onChange={handleChange}
                     name="description"
                     required
+                    placeholder="Example: Color: Jet Black, capacity 256GB, Unlocked ..."
                   ></textarea>
                   <div className="invalid-feedback">
                     Please provide a description.
@@ -97,7 +99,7 @@ const PostAdPage = ({
 
               <div className="mb-3">
                 <div className="">
-                  <div className="mb-2">Prix: </div>
+                  <div className="mb-2">How muh you have for it? </div>
 
                   <input
                     type="number"
@@ -106,6 +108,7 @@ const PostAdPage = ({
                     value={values.price}
                     onChange={handleChange}
                     name="price"
+                    placeholder="Example: $300"
                     required
                   />
                   <div className="invalid-feedback">Please set your price.</div>
@@ -114,7 +117,7 @@ const PostAdPage = ({
 
               <div className="mb-3">
                 <div className="">
-                  <div className="mb-2">Contact & Info: </div>
+                  <div className="mb-2">How can sellers join you ?</div>
 
                   <textarea
                     className="form-control"
@@ -123,6 +126,7 @@ const PostAdPage = ({
                     value={values.contact}
                     onChange={handleChange}
                     name="contact"
+                    placeholder="Example: sarah@gmail.com"
                     required
                   ></textarea>
                   <div className="invalid-feedback">
@@ -133,7 +137,7 @@ const PostAdPage = ({
 
               <div className="d-grid gap-2 mb-3">
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-dark"
                   type="submit"
                   disabled={loading}
                 >
