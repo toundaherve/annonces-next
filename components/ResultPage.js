@@ -38,7 +38,7 @@ const ResultPage = ({
   );
 
   return (
-    <Layout>
+    <Layout location={"Results " + query}>
       <Section noHeading>
         {requestError.error ? (
           <FailureAlert />

@@ -23,9 +23,9 @@ const PostAdPage = ({
   loading,
 }) => {
   return (
-    <Layout>
+    <Layout location="Publish a want">
       {status === "form" && (
-        <Section title="Post a want" next={false}>
+        <Section title="Publish a want" next={false}>
           <p className="mb-4">Describ the item you want to buy.</p>
 
           <form
@@ -59,7 +59,7 @@ const PostAdPage = ({
 
               <div className="mb-3">
                 <div className="">
-                  <div className="mb-2">What item do you need? </div>
+                  <div className="mb-2">What item do you want? </div>
 
                   <input
                     type="text"
@@ -99,7 +99,7 @@ const PostAdPage = ({
 
               <div className="mb-3">
                 <div className="">
-                  <div className="mb-2">How muh you have for it? </div>
+                  <div className="mb-2">How much do you have for it? </div>
 
                   <input
                     type="number"
@@ -135,7 +135,7 @@ const PostAdPage = ({
                 </div>
               </div>
 
-              <div className="d-grid gap-2 mb-3">
+              <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
                 <button
                   className="btn btn-dark"
                   type="submit"
@@ -146,7 +146,7 @@ const PostAdPage = ({
                       <span className="visually-hidden">Loading...</span>
                     </span>
                   ) : (
-                    "Send"
+                    "Publish now"
                   )}
                 </button>
               </div>

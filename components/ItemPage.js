@@ -11,7 +11,7 @@ const ItemPage = ({
   category,
 }) => {
   return (
-    <Layout>
+    <Layout location={"Want"}>
       <div className="item row">
         <div className="col-12 col-md-12">
           <div className="p-3 mb-4 border">

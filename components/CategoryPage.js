@@ -38,7 +38,7 @@ const CategoryPage = ({
     </div>
   );
   return (
-    <Layout>
+    <Layout location={capitalized + " wants"}>
       <Section noHeading>
         {requestError.error ? (
           <FailureAlert />
@@ -47,7 +47,7 @@ const CategoryPage = ({
         ) : (
           <NoResultsAlert
             query={query}
-            templateMsg={`There are no offers yet in category ${query}.`}
+            templateMsg={`There are no wants yet in category "${query}".`}
           />
         )}
       </Section>

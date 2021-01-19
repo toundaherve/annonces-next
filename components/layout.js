@@ -7,6 +7,7 @@ const Layout = ({
   rightAside = true,
   breadcrumb = true,
   children,
+  location = "",
 }) => {
   return (
     <div className="container-lg">
@@ -19,7 +20,7 @@ const Layout = ({
                 aria-current="page"
                 href="/postad"
               >
-                Post a want
+                Publish a want
               </a>
             </li>
           </ul>
@@ -57,12 +58,9 @@ const Layout = ({
               <li className="breadcrumb-item">
                 <a href="/">Home</a>
               </li>
-              <li className="breadcrumb-item">
-                <a href="#1">Library</a>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                Data
-              </li>
+              {location && (
+                <li className="breadcrumb-item active">{location}</li>
+              )}
             </ol>
           </nav>
         </div>
