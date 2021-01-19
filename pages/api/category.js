@@ -48,6 +48,5 @@ async function handleQuery(req, res) {
 }
 
 export default (req, res) => {
-  Annonce.sync();
   handleQuery(req, res);
 };

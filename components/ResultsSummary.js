@@ -3,7 +3,7 @@ import React from "react";
 const ResultsSummary = ({ totalCount, limit, data, page, query }) => {
   return (
     <div className="h5 mb-1 fw-normal">
-      Wants{" "}
+      Items wanted{" "}
       <span className="fw-bold">
         {" "}
         {limit * (page + 1) - limit + 1} -{" "}

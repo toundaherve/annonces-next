@@ -47,7 +47,7 @@ const CategoryPage = ({
         ) : (
           <NoResultsAlert
             query={query}
-            templateMsg={`There are no wants yet in category "${query}".`}
+            templateMsg={`There are no items wanted yet in category "${query}".`}
           />
         )}
       </Section>

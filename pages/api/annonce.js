@@ -81,8 +81,6 @@ async function handleQuery(req, res) {
 }
 
 export default (req, res) => {
-  Annonce.sync();
-
   switch (req.method) {
     case "POST":
       handlePOST(req, res);

@@ -20,16 +20,18 @@ const Layout = ({
                 aria-current="page"
                 href="/postad"
               >
-                Publish a want
+                Post an item wanted
               </a>
             </li>
           </ul>
         </div>
 
         <div className="mb-4">
-          <a href="/" className="link-dark">
-            <h2 className="fw-bolder display-3">WANT3D</h2>
-          </a>
+          <h2 className="fw-bolder display-3">
+            <a href="/" className="link-dark">
+              WANT3D
+            </a>
+          </h2>
         </div>
       </div>
 
@@ -42,7 +44,7 @@ const Layout = ({
           <input
             className="form-control me-2"
             type="search"
-            placeholder="Search what people want"
+            placeholder="Search items wanted..."
             aria-label="Search"
             name="search"
             required
@@ -77,7 +79,7 @@ const Layout = ({
                   <li key={idx} className="pb-1">
                     <a
                       href={`/category?category=${category.toLocaleLowerCase()}`}
-                    >{`${category} >`}</a>
+                    >{`${category}`}</a>
                   </li>
                 ))}
               </ul>
@@ -91,7 +93,7 @@ const Layout = ({
           <div className="d-sm-none d-lg-block col-12 col-lg-3">
             <div className="border p-3 mb-4">
               <p className="my-4 h5 fw-normal">
-                WANT3D is a platform where you can say what you need and how
+                WANT3D is a platform where you can say what you want and how
                 much you are ready to pay for it.
               </p>
             </div>

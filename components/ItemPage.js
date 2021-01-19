@@ -11,7 +11,7 @@ const ItemPage = ({
   category,
 }) => {
   return (
-    <Layout location={"Want"}>
+    <Layout location={"Wanted " + title}>
       <div className="item row">
         <div className="col-12 col-md-12">
           <div className="p-3 mb-4 border">
@@ -25,9 +25,9 @@ const ItemPage = ({
               <table className="table">
                 <tbody>
                   <tr>
-                    <td>Will pay:</td>
+                    <td>Budget:</td>
                     <td>
-                      <span className="fw-bold">{price}</span>
+                      <span className="fw-bold">£{price}</span>
                     </td>
                   </tr>
                   <tr>

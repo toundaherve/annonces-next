@@ -23,9 +23,9 @@ const PostAdPage = ({
   loading,
 }) => {
   return (
-    <Layout location="Publish a want">
+    <Layout location="Post an item wanted">
       {status === "form" && (
-        <Section title="Publish a want" next={false}>
+        <Section title="Post an item wanted" next={false}>
           <p className="mb-4">Describ the item you want to buy.</p>
 
           <form
@@ -48,7 +48,9 @@ const PostAdPage = ({
                   >
                     <option value="">Open this select menu</option>
                     {categories.map((category, idx) => (
-                      <option value={category.toLowerCase()}>{category}</option>
+                      <option key={idx} value={category.toLowerCase()}>
+                        {category}
+                      </option>
                     ))}
                   </select>
                   <div className="invalid-feedback">
@@ -99,7 +101,7 @@ const PostAdPage = ({
 
               <div className="mb-3">
                 <div className="">
-                  <div className="mb-2">How much do you have for it? </div>
+                  <div className="mb-2">What is your budget? </div>
 
                   <input
                     type="number"
@@ -108,10 +110,12 @@ const PostAdPage = ({
                     value={values.price}
                     onChange={handleChange}
                     name="price"
-                    placeholder="Example: $300"
+                    placeholder="Example: £300"
                     required
                   />
-                  <div className="invalid-feedback">Please set your price.</div>
+                  <div className="invalid-feedback">
+                    Please set your budget.
+                  </div>
                 </div>
               </div>
 

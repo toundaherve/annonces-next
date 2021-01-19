@@ -68,11 +68,11 @@ const ResultsTable = ({ data, page, totalCount, limit, onPageClick }) => {
         <table className="table align-middle table-hover">
           <thead>
             <tr>
-              <th scope="col">User</th>
-              <th scope="col">Want</th>
-              <th scope="col" className="text-center">
-                Pay
+              <th scope="col">Wanted</th>
+              <th scope="col" className="text-end">
+                Budget
               </th>
+              <th scope="col">User</th>
               <th scope="col">Location</th>
               <th scope="col">ETA</th>
             </tr>
@@ -81,11 +81,12 @@ const ResultsTable = ({ data, page, totalCount, limit, onPageClick }) => {
             {data.map((ad, idx) => {
               return (
                 <tr key={idx} onClick={() => handleRowClick(ad.id)}>
-                  <td>{mockUsers[idx]}</td>
                   <td className="fw-normal" scope="row">
                     {ad.title}
                   </td>
-                  <td className="text-end">${ad.price}</td>
+                  <td className="text-end">£{ad.price}</td>
+                  <td>{mockUsers[idx]}</td>
+
                   <td>{mockLocations[idx]}</td>
                   <td>{mockETA[idx]}</td>
                 </tr>
