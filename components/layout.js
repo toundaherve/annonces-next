@@ -85,10 +85,10 @@ const Layout = ({
           </div>
         )}
 
-        <div className="col-12 col-sm-9 col-lg-8">{children}</div>
+        <div className="col-12 col-sm-9 col-lg-7">{children}</div>
 
         {rightAside && (
-          <div className="d-sm-none d-lg-block col-12 col-lg-2">
+          <div className="d-sm-none d-lg-block col-12 col-lg-3">
             <div className="border p-3 mb-4">
               <p className="my-4 h5 fw-normal">
                 WANT3D is a platform where you can say what you need and how

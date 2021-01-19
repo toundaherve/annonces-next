@@ -19,6 +19,42 @@ const mockUsers = [
   "Dana",
 ];
 
+const mockLocations = [
+  "Leeds",
+  "London",
+  "Manchester",
+  "Wolverhampton",
+  "Birmingham",
+  "London",
+  "Liverpool",
+  "Newcastle",
+  "Leeds",
+  "London",
+  "Cannock",
+  "Bradford",
+  "Norwich",
+  "London",
+  "Birmingham",
+];
+
+const mockETA = [
+  "1day",
+  "50min",
+  "2days",
+  "23min",
+  "2d",
+  "5h",
+  "1d 5h",
+  "50min",
+  "4days 5min",
+  "6h",
+  "3h 45min",
+  "9h 8min",
+  "2days",
+  "12min",
+  "6h 8min",
+];
+
 const ResultsTable = ({ data, page, totalCount, limit, onPageClick }) => {
   const pagesCount = Math.ceil(totalCount / limit);
 
@@ -34,7 +70,7 @@ const ResultsTable = ({ data, page, totalCount, limit, onPageClick }) => {
             <tr>
               <th scope="col">User</th>
               <th scope="col">Want</th>
-              <th scope="col" className="text-end">
+              <th scope="col" className="text-center">
                 Pay
               </th>
               <th scope="col">Location</th>
@@ -50,8 +86,8 @@ const ResultsTable = ({ data, page, totalCount, limit, onPageClick }) => {
                     {ad.title}
                   </td>
                   <td className="text-end">${ad.price}</td>
-                  <td>Location</td>
-                  <td>Time</td>
+                  <td>{mockLocations[idx]}</td>
+                  <td>{mockETA[idx]}</td>
                 </tr>
               );
             })}
