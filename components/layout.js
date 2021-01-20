@@ -20,7 +20,7 @@ const Layout = ({
                 aria-current="page"
                 href="/postad"
               >
-                Post an item wanted
+                Post item
               </a>
             </li>
           </ul>
